@@ -1,8 +1,8 @@
-package com.hycjack.chapter02.test01.test;
+package com.hycjack.chapter02.test02.test;
 
-import com.hycjack.chapter02.test01.extthread.ThreadA;
-import com.hycjack.chapter02.test01.extthread.ThreadB;
-import com.hycjack.chapter02.test01.service.HasSelfPrivateNum;
+import com.hycjack.chapter02.test02.extthread.ThreadA;
+import com.hycjack.chapter02.test02.extthread.ThreadB;
+import com.hycjack.chapter02.test02.service.HasSelfPrivateNum;
 
 /**
  * 方法内变量为线程安全

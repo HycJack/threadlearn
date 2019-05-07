@@ -1,4 +1,4 @@
-package com.hycjack.chapter02.test01;
+package com.hycjack.chapter02;
 /**
  * 本章着重掌握如下技术
  *      1、synchronized对象监视器为Object时的使用
