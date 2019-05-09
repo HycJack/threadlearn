@@ -3,6 +3,7 @@ package com.hycjack.chapter02.test01.test;
 import com.hycjack.chapter02.test01.extthread.ThreadA;
 import com.hycjack.chapter02.test01.extthread.ThreadB;
 import com.hycjack.chapter02.test01.service.HasSelfPrivateNum;
+import com.hycjack.chapter02.test01.service.HasSelfPrivateNum01;
 
 /**
  * 方法内变量为线程安全
@@ -10,7 +11,7 @@ import com.hycjack.chapter02.test01.service.HasSelfPrivateNum;
 public class Run {
     public static void main(String[] args) {
         test01();
-//        test02();
+        test02();
 
     }
 
@@ -28,8 +29,8 @@ public class Run {
      * 两个线程分别访问同一个类的两个不同实例的相同名称的同步方法，效果是以异步的方式运行的
      */
     private static void test02() {
-        HasSelfPrivateNum numRef1 = new HasSelfPrivateNum();
-        HasSelfPrivateNum numRef2 = new HasSelfPrivateNum();
+        HasSelfPrivateNum numRef1 = new HasSelfPrivateNum01();
+        HasSelfPrivateNum numRef2 = new HasSelfPrivateNum01();
         ThreadA athread = new ThreadA(numRef1);
         athread.start();
         ThreadB bthread = new ThreadB(numRef2);
