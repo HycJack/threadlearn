@@ -1,12 +1,10 @@
-package com.hycjack.chapter02.test02.test;
+package com.hycjack.chapter02.test03.test;
 
-import com.hycjack.chapter02.test02.extobject.MyObject;
-import com.hycjack.chapter02.test02.extthread.ThreadA;
-import com.hycjack.chapter02.test02.extthread.ThreadB;
-import com.hycjack.chapter02.test02.service.HasSelfPrivateNum;
+import com.hycjack.chapter02.test03.entity.PublicVar;
+import com.hycjack.chapter02.test03.extthread.ThreadA;
 
 /**
- * 验证synchronized是对象锁
+ * 脏读
  */
 public class Run {
     public static void main(String[] args) {
@@ -15,13 +13,17 @@ public class Run {
     }
 
     private static void test01() {
-        MyObject object = new MyObject();
-        ThreadA athread = new ThreadA(object);
-        athread.setName("A");
-        ThreadB bthread = new ThreadB(object);
-        bthread.setName("B");
-        athread.start();
-        bthread.start();
+        try {
+            PublicVar publicVarRef = new PublicVar();
+            ThreadA thread = new ThreadA(publicVarRef);
+            thread.setName("A");
+            thread.start();
+            Thread.sleep(1000);
+            publicVarRef.getVlaue();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

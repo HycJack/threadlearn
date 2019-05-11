@@ -1,17 +1,17 @@
-package com.hycjack.chapter02.test02.extthread;
+package com.hycjack.chapter02.test03.extthread;
 
-import com.hycjack.chapter02.test02.extobject.MyObject;
+import com.hycjack.chapter02.test03.entity.PublicVar;
 
 public class ThreadA extends Thread {
-    private MyObject object;
+    private PublicVar object;
 
-    public ThreadA(MyObject object) {
+    public ThreadA(PublicVar object) {
         super();
         this.object = object;
     }
 
     public void run(){
         super.run();
-        object.methodA();
+        object.setValue("B", "BB");
     }
 }
